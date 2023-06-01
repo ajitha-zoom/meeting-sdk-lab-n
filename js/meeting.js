@@ -59,7 +59,7 @@ function websdkready() {
       leaveUrl: meetingConfig.leaveUrl,
       webEndpoint: meetingConfig.webEndpoint,
       disableCORP: !window.crossOriginIsolated, // default true
-      disablePreview: true, // default false
+      //disablePreview: true, // default false
       externalLinkPage: './externalLinkPage.html',
       success: function () {
         console.log(meetingConfig);

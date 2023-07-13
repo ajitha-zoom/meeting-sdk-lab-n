@@ -94,7 +94,7 @@ function websdkready() {
       testTool.setCookie("meeting_number", meetingConfig.mn);
       testTool.setCookie("meeting_pwd", meetingConfig.pwd);
 
-      fetch(`/api/`, {
+      fetch(`https://zlab.zoom.us/msdk-auth/`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -155,7 +155,7 @@ function websdkready() {
       return false;
     }
     
-    fetch(`/api/`, {
+    fetch(`https://zlab.zoom.us/msdk-auth/`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

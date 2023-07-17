@@ -14,8 +14,8 @@ function websdkready() {
   console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
 
   // it's option if you want to change the WebSDK dependency link resources. setZoomJSLib must be run at first
-  // if (!china) ZoomMtg.setZoomJSLib('https://source.zoom.us/2.12.2/lib', '/av'); // CDN version default
-  // else ZoomMtg.setZoomJSLib('https://jssdk.zoomus.cn/2.12.2/lib', '/av'); // china cdn option
+  // if (!china) ZoomMtg.setZoomJSLib('https://source.zoom.us/2.14.0/lib', '/av'); // CDN version default
+  // else ZoomMtg.setZoomJSLib('https://jssdk.zoomus.cn/2.14.0/lib', '/av'); // china cdn option
   // ZoomMtg.setZoomJSLib('http://localhost:9999/node_modules/@zoomus/websdk/dist/lib', '/av'); // Local version default, Angular Project change to use cdn version
   ZoomMtg.preLoadWasm(); // pre download wasm file to save time.
 
@@ -124,13 +124,13 @@ function websdkready() {
       
       /*var signature = ZoomMtg.generateSDKSignature({
         meetingNumber: meetingConfig.mn,
-        sdkKey: "12",
+        sdkKey: CLIENT_ID,
         sdkSecret: CLIENT_SECRET,
         role: meetingConfig.role,
         success: function (res) {
           console.log(res.result);
           meetingConfig.signature = res.result;
-          meetingConfig.sdkKey = "12";
+          meetingConfig.sdkKey = CLIENT_ID;
           var joinUrl = "/meeting.html?" + testTool.serialize(meetingConfig);
           console.log(joinUrl);
           window.open(joinUrl, "_blank");
@@ -188,13 +188,13 @@ function websdkready() {
     //meetingConfig = getSignature(meetingConfig)
     /*var signature = ZoomMtg.generateSDKSignature({
       meetingNumber: meetingConfig.mn,
-      sdkKey: "12",
+      sdkKey: CLIENT_ID,
       sdkSecret: CLIENT_SECRET,
       role: meetingConfig.role,
       success: function (res) {
         console.log(res.result);
         meetingConfig.signature = res.result;
-        meetingConfig.sdkKey = "12";
+        meetingConfig.sdkKey = CLIENT_ID;
         var joinUrl =
           testTool.getCurrentDomain() +
           "/meeting.html?" +

@@ -49,9 +49,9 @@ function websdkready() {
   console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
 
   // it's option if you want to change the WebSDK dependency link resources. setZoomJSLib must be run at first
-  // ZoomMtg.setZoomJSLib("https://source.zoom.us/2.12.2/lib", "/av"); // CDN version defaul
+  // ZoomMtg.setZoomJSLib("https://source.zoom.us/2.14.0/lib", "/av"); // CDN version defaul
   if (meetingConfig.china)
-    ZoomMtg.setZoomJSLib("https://jssdk.zoomus.cn/2.12.2/lib", "/av"); // china cdn option
+    ZoomMtg.setZoomJSLib("https://jssdk.zoomus.cn/2.14.0/lib", "/av"); // china cdn option
   ZoomMtg.preLoadWasm();
   ZoomMtg.prepareJssdk();
   function beginJoin(signature) {
@@ -59,7 +59,7 @@ function websdkready() {
       leaveUrl: meetingConfig.leaveUrl,
       webEndpoint: meetingConfig.webEndpoint,
       disableCORP: !window.crossOriginIsolated, // default true
-      //disablePreview: true, // default false
+      // disablePreview: false, // default false
       externalLinkPage: './externalLinkPage.html',
       success: function () {
         console.log(meetingConfig);

@@ -3,8 +3,6 @@ window.addEventListener('DOMContentLoaded', function(event) {
   websdkready();
 });
 
-signatureEndpoint = 'http://3.133.111.8:3001'
-
 function websdkready() {
   var testTool = window.testTool;
   if (testTool.isMobileDevice()) {
@@ -14,8 +12,8 @@ function websdkready() {
   console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
 
   // it's option if you want to change the WebSDK dependency link resources. setZoomJSLib must be run at first
-  // if (!china) ZoomMtg.setZoomJSLib('https://source.zoom.us/2.17.0/lib', '/av'); // CDN version default
-  // else ZoomMtg.setZoomJSLib('https://jssdk.zoomus.cn/2.17.0/lib', '/av'); // china cdn option
+  // if (!china) ZoomMtg.setZoomJSLib('https://source.zoom.us/2.18.2/lib', '/av'); // CDN version default
+  // else ZoomMtg.setZoomJSLib('https://jssdk.zoomus.cn/2.18.2/lib', '/av'); // china cdn option
   // ZoomMtg.setZoomJSLib('http://localhost:9999/node_modules/@zoomus/websdk/dist/lib', '/av'); // Local version default, Angular Project change to use cdn version
   ZoomMtg.preLoadWasm(); // pre download wasm file to save time.
 
@@ -94,7 +92,7 @@ function websdkready() {
       testTool.setCookie("meeting_number", meetingConfig.mn);
       testTool.setCookie("meeting_pwd", meetingConfig.pwd);
 
-      fetch(`https://zlab.zoom.us/msdk-auth`, {
+      fetch(`https://6kqchey0j2.execute-api.us-east-1.amazonaws.com/latest`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -112,7 +110,8 @@ function websdkready() {
         console.log("ajitha.key")
         console.log(data.sdkkey)
         meetingConfig.signature = data.signature;
-        meetingConfig.sdkKey = data.sdkkey;
+        //meetingConfig.sdkKey = data.sdkkey;
+        meetingConfig.sdkKey = "QmpFQcWHUDAUnR1BhmRUtBD51Tj14xqzXa00";
         var joinUrl = "/meeting.html?" + testTool.serialize(meetingConfig);
           console.log(joinUrl);
           window.open(joinUrl, "_blank");
@@ -155,7 +154,7 @@ function websdkready() {
       return false;
     }
     
-    fetch(`https://zlab.zoom.us/msdk-auth`, {
+    fetch(`https://6kqchey0j2.execute-api.us-east-1.amazonaws.com/latest`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
